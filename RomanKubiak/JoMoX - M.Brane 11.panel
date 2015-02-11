@@ -8,7 +8,7 @@
        panelMidiSnapshotDelay="10" panelMidiSnapshotShowProgress="0"
        panelMidiInputChannelDevice="1" panelMidiInputDevice="-- None"
        panelMidiControllerChannelDevice="1" panelMidiControllerDevice="-- None"
-       panelMidiOutputChannelDevice="1" panelMidiOutputDevice="-- None"
+       panelMidiOutputChannelDevice="1" panelMidiOutputDevice="Midi Through"
        panelMidiInputFromHost="0" panelMidiInputChannelHost="1" panelMidiOutputToHost="0"
        panelMidiOutputChannelHost="1" panelMidiThruH2H="0" panelMidiThruH2HChannelize="0"
        panelMidiThruH2D="0" panelMidiThruH2DChannelize="0" panelMidiThruD2D="0"
@@ -27,7 +27,7 @@
        panelUID="8.JfP5OBH3gAB" panelInstanceUID="HryD" panelInstanceManufacturerID="sbza"
        panelModulatorListColumns="-- None" panelModulatorListCsvDelimiter=","
        panelModulatorListXmlRoot="ctrlrModulatorList" panelModulatorListXmlModulator="ctrlrModulator"
-       panelModulatorListSortOption="1" panelGlobalVariables="-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
+       panelModulatorListSortOption="1" panelGlobalVariables="13:13:-1:13:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:13:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
        panelResources="-- None" panelPropertyDisplayIDs="0" ctrlrMenuItemBackgroundColour="ffffffff"
        ctrlrMenuItemTextColour="ff000000" ctrlrMenuItemHighlightedTextColour="ffffffff"
        ctrlrMenuItemHighlightColour="ff4364ff" ctrlrMenuItemFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;0"
@@ -46,7 +46,7 @@
     <uiChildWindow uiChildWindowName="LuaConsole" uiChildWindowState="1088 534 797 502">
       <uiChildWindowContentState/>
     </uiChildWindow>
-    <uiChildWindow uiChildWindowName="LayerEditor" uiChildWindowState="564 317 800 500">
+    <uiChildWindow uiChildWindowName="LayerEditor" uiChildWindowState="565 345 800 500">
       <uiChildWindowContentState/>
     </uiChildWindow>
     <uiChildWindow uiChildWindowName="LuaDebugger" uiChildWindowState="560 270 800 500">
@@ -122,7 +122,7 @@
       <luaMethod luaMethodName="how" luaMethodCode="-- @1.1&#13;&#10;--&#13;&#10;-- Print all available classes&#13;&#10;--&#13;&#10;function how()&#13;&#10;&#9;ret = &quot;Available classes:\n&quot;&#13;&#10;&#9;ret = ret .. &quot;\n-----------------------------------------------------------------&quot;&#13;&#10;&#9;for i,v in ipairs(class_names()) do&#13;&#10;&#9;&#9;ret = ret .. &quot;\t&quot;.. v .. &quot;\n&quot;&#13;&#10;&#9;end&#13;&#10;&#9;ret = ret .. &quot;\n-----------------------------------------------------------------&quot;&#13;&#10;&#9;_DBG (ret)&#13;&#10;&#9;return ret&#13;&#10;end"
                  luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000003"
                  luaMethodValid="1"/>
-      <luaMethod luaMethodName="CustomLF" luaMethodCode="lookAndFeelImpl = {&#13;&#10;&#13;&#10;drawToggleButton = function (g, toggleButton, isMouseOverButton, isButtonDown)&#13;&#10;&#9;width = toggleButton:getWidth()&#13;&#10;&#9;height  = toggleButton:getHeight()&#13;&#10;&#9;fontSize = jmin (15.0, toggleButton:getHeight() * 0.75)&#13;&#10;    tickWidth = fontSize * 1.1&#13;&#10;&#13;&#10;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;    g:drawRoundedRectangle (1, 1, width - 2, height - 2, 3.0, 2.0);&#13;&#10;&#9;if toggleButton:getToggleState() then&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000):withAlpha(0.75));&#13;&#10;&#9;else&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000):withAlpha(0.2));&#13;&#10;&#9;end&#13;&#10;&#9;g:fillRoundedRectangle (1, 1, width - 2, height - 2 ,3.0)&#13;&#10;    g:setFont (fontSize)&#13;&#10;&#13;&#10;    if not toggleButton:isEnabled() then&#13;&#10;        g:setOpacity (0.5)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;    textX = tickWidth + 5&#13;&#10;&#13;&#10;&#9;g:setColour (Colour (0xffffffff))&#13;&#10;&#9;j = Justification (Justification.left)&#13;&#10;&#13;&#10;&#9;if not toggleButton:getToggleState() then&#13;&#10;&#9;&#9;g:setColour (Colour (0xffffffff):overlaidWith(Colour(0xffff0000)))&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;g:drawText (toggleButton:getButtonText(), textX, height / 4, toggleButton:getWidth() - textX - 2, tickWidth, j, true)&#10;end,&#13;&#10;&#13;&#10;drawPopupMenuBackground = function (g, width, height)&#13;&#10;&#9;g:fillAll (Colour (0xff000000))&#13;&#10;&#9;g:fillAll (Colour (0xffff0000):withAlpha(0.3))&#13;&#10;&#9;g:setColour (Colour (0xff000000))&#13;&#10;&#13;&#10;&#9;for i=0,height,6 do&#13;&#10;&#9;&#9;g:fillRect (0, i, width, 1);&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;g:setColour (Colour (0xffff0000):darker(0.4))&#13;&#10;&#9;g:drawRoundedRectangle (1, 1, width - 2, height - 2, 3.0, 2.0)&#10;end,&#13;&#10;&#10;drawPopupMenuItem = function(g, area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, drawableIcon, textColourPtr)&#13;&#10;&#9;if isHighlighted then&#13;&#10;&#9;&#9;g:fillAll (Colour (0xffffffff))&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;&#9;else&#13;&#10;&#9;&#9;g:setColour (Colour (0xffffffff))&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;g:drawText(text, area, Justification(Justification.centred), true);&#10;end,&#13;&#10;&#10;drawComboBox = function (g, width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, comboBox)&#13;&#10;&#9;g:fillAll (Colour (0xffff0000):withAlpha(0.2))&#13;&#10;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;&#9;g:drawRoundedRectangle (1, 1, width - 2, height - 2, 3.0, 2.0);&#13;&#10;&#13;&#10;&#9;if comboBox:isEnabled() then&#13;&#10;        arrowX = 0.3&#13;&#10;        arrowH = 0.2&#13;&#10;&#13;&#10;&#9;&#9;path = Path()&#13;&#10;&#9;&#9;path:addTriangle (buttonX + buttonW * 0.5,            buttonY + buttonH * (0.45 - arrowH),&#13;&#10;                       buttonX + buttonW * (1.0 - arrowX), buttonY + buttonH * 0.45,&#13;&#10;                       buttonX + buttonW * arrowX,         buttonY + buttonH * 0.45);&#13;&#10;&#13;&#10;&#9;&#9;path:addTriangle (buttonX + buttonW * 0.5,            buttonY + buttonH * (0.55 + arrowH),&#13;&#10;                       buttonX + buttonW * (1.0 - arrowX),  buttonY + buttonH * 0.55,&#13;&#10;                       buttonX + buttonW * arrowX,          buttonY + buttonH * 0.55);&#13;&#10;&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;        g:fillPath (path, AffineTransform())&#13;&#10;&#9;end&#10;end,&#10;&#10;drawRotarySlider = function(g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider)&#13;&#10;&#9;red = Colour(0xffff0000)&#13;&#10;&#13;&#10;    radius = (height / 2) - 2.0;&#13;&#10;    centreX = x + width * 0.5;&#13;&#10;    centreY = y + height * 0.5;&#13;&#10;    rx = centreX - radius;&#13;&#10;    ry = centreY - radius;&#13;&#10;    rw = radius * 2.0;&#13;&#10;    angle = rotaryStartAngle + sliderPosProportional * (rotaryEndAngle - rotaryStartAngle);&#13;&#10;    thickness = 0.5;&#13;&#10;    segmentSize = (rotaryEndAngle - rotaryStartAngle) / 20.0;&#13;&#10;&#13;&#10;    for i=rotaryStartAngle,rotaryEndAngle,segmentSize do&#13;&#10;        if i &lt;= angle and angle ~= rotaryStartAngle then&#13;&#10;            g:setColour (red:withAlpha(0.75))&#13;&#10;        else&#13;&#10;            g:setColour (red:withAlpha(0.2))&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;        filledArc = Path()&#13;&#10;        filledArc:addPieSegment (rx, ry, rw, rw, i, (i + segmentSize - (segmentSize * 0.2)), thickness)&#13;&#10;        g:fillPath (filledArc, AffineTransform())&#13;&#10;    end&#13;&#10;&#13;&#10;&#13;&#10;&#9;f = Font (rw * 0.25, Font.plain)&#13;&#10;&#9;g:setFont (f)&#13;&#10;&#9;g:setColour (red:brighter (0.2))&#13;&#10;    g:drawText (string.format (&quot;%.0f&quot;, slider:getValue()), 0, 0, width, height, Justification (Justification.centred), true)&#10;end,&#13;&#10;&#13;&#10;createComboBoxTextBox = function(comboBox)&#13;&#10;&#9;l = LookAndFeel.createLabel()&#13;&#10;&#9;return l&#13;&#10;end&#13;&#10;} -- End table"
+      <luaMethod luaMethodName="CustomLF" luaMethodCode="lookAndFeelImpl = {&#13;&#10;&#13;&#10;drawToggleButton = function (g, toggleButton, isMouseOverButton, isButtonDown)&#13;&#10;&#9;width = toggleButton:getWidth()&#13;&#10;&#9;height  = toggleButton:getHeight()&#13;&#10;&#9;fontSize = jmin (15.0, toggleButton:getHeight() * 0.75)&#13;&#10;    tickWidth = fontSize * 1.1&#13;&#10;&#13;&#10;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;    g:drawRoundedRectangle (1, 1, width - 2, height - 2, 3.0, 2.0);&#13;&#10;&#9;if toggleButton:getToggleState() then&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000):withAlpha(0.75));&#13;&#10;&#9;else&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000):withAlpha(0.2));&#13;&#10;&#9;end&#13;&#10;&#9;g:fillRoundedRectangle (1, 1, width - 2, height - 2 ,3.0)&#13;&#10;    g:setFont (fontSize)&#13;&#10;&#13;&#10;    if not toggleButton:isEnabled() then&#13;&#10;        g:setOpacity (0.5)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;    textX = tickWidth + 5&#13;&#10;&#13;&#10;&#9;g:setColour (Colour (0xffffffff))&#13;&#10;&#9;j = Justification (Justification.left)&#13;&#10;&#13;&#10;&#9;if not toggleButton:getToggleState() then&#13;&#10;&#9;&#9;g:setColour (Colour (0xffffffff):overlaidWith(Colour(0xffff0000)))&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;g:drawText (toggleButton:getButtonText(), textX, height / 4, toggleButton:getWidth() - textX - 2, tickWidth, j, true)&#10;end,&#13;&#10;&#13;&#10;drawPopupMenuBackground = function (g, width, height)&#13;&#10;&#9;g:fillAll (Colour (0xff000000))&#13;&#10;&#9;g:fillAll (Colour (0xffff0000):withAlpha(0.3))&#13;&#10;&#9;g:setColour (Colour (0xff000000))&#13;&#10;&#13;&#10;&#9;for i=0,height,6 do&#13;&#10;&#9;&#9;g:fillRect (0, i, width, 1);&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;g:setColour (Colour (0xffff0000):darker(0.4))&#13;&#10;&#9;g:drawRoundedRectangle (1, 1, width - 2, height - 2, 3.0, 2.0)&#10;end,&#13;&#10;&#10;drawPopupMenuItem = function(g, area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, drawableIcon, textColourPtr)&#13;&#10;&#9;if isHighlighted then&#13;&#10;&#9;&#9;g:fillAll (Colour (0xffffffff))&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;&#9;else&#13;&#10;&#9;&#9;g:setColour (Colour (0xffffffff))&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;g:drawText(text, area, Justification(Justification.centred), true);&#10;end,&#13;&#10;&#10;drawComboBox = function (g, width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, comboBox)&#13;&#10;&#9;g:fillAll (Colour (0xffffffff):withAlpha(0.2))&#13;&#10;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;&#9;g:drawRoundedRectangle (1, 1, width - 2, height - 2, 3.0, 2.0);&#13;&#10;&#13;&#10;&#9;if comboBox:isEnabled() then&#13;&#10;        arrowX = 0.3&#13;&#10;        arrowH = 0.2&#13;&#10;&#13;&#10;&#9;&#9;path = Path()&#13;&#10;&#9;&#9;path:addTriangle (buttonX + buttonW * 0.5,            buttonY + buttonH * (0.45 - arrowH),&#13;&#10;                       buttonX + buttonW * (1.0 - arrowX), buttonY + buttonH * 0.45,&#13;&#10;                       buttonX + buttonW * arrowX,         buttonY + buttonH * 0.45);&#13;&#10;&#13;&#10;&#9;&#9;path:addTriangle (buttonX + buttonW * 0.5,            buttonY + buttonH * (0.55 + arrowH),&#13;&#10;                       buttonX + buttonW * (1.0 - arrowX),  buttonY + buttonH * 0.55,&#13;&#10;                       buttonX + buttonW * arrowX,          buttonY + buttonH * 0.55);&#13;&#10;&#13;&#10;&#9;&#9;g:setColour (Colour (0xffff0000))&#13;&#10;        g:fillPath (path, AffineTransform())&#13;&#10;&#9;end&#10;end,&#10;&#10;drawRotarySlider = function(g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider)&#13;&#10;&#9;red = Colour(0xffff0000)&#13;&#10;&#13;&#10;    radius = (height / 2) - 2.0;&#13;&#10;    centreX = x + width * 0.5;&#13;&#10;    centreY = y + height * 0.5;&#13;&#10;    rx = centreX - radius;&#13;&#10;    ry = centreY - radius;&#13;&#10;    rw = radius * 2.0;&#13;&#10;    angle = rotaryStartAngle + sliderPosProportional * (rotaryEndAngle - rotaryStartAngle);&#13;&#10;    thickness = 0.5;&#13;&#10;    segmentSize = (rotaryEndAngle - rotaryStartAngle) / 20.0;&#13;&#10;&#13;&#10;    for i=rotaryStartAngle,rotaryEndAngle,segmentSize do&#13;&#10;        if i &lt;= angle and angle ~= rotaryStartAngle then&#13;&#10;            g:setColour (red:withAlpha(0.75))&#13;&#10;        else&#13;&#10;            g:setColour (red:withAlpha(0.2))&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;        filledArc = Path()&#13;&#10;        filledArc:addPieSegment (rx, ry, rw, rw, i, (i + segmentSize - (segmentSize * 0.2)), thickness)&#13;&#10;        g:fillPath (filledArc, AffineTransform())&#13;&#10;    end&#13;&#10;&#13;&#10;&#13;&#10;&#9;f = Font (rw * 0.25, Font.plain)&#13;&#10;&#9;g:setFont (f)&#13;&#10;&#9;g:setColour (red:brighter (0.2))&#13;&#10;    g:drawText (string.format (&quot;%.0f&quot;, slider:getValue()), 0, 0, width, height, Justification (Justification.centred), true)&#10;end,&#13;&#10;&#13;&#10;getComboBoxFont = function(comboBox)&#13;&#10;&#9;return Font(&quot;Courier New&quot;,18.0,1)&#13;&#10;end&#13;&#10;} -- End table"
                  luaMethodLinkedProperty="" luaMethodSource="0" uuid="4fafcd85865045368e84b46c4c27bb79"
                  luaMethodValid="1"/>
       <luaMethod luaMethodName="switchLookAndFeel" luaMethodCode="--&#10;-- Called when a modulator value changes&#10;-- @mod   http://ctrlr.org/api/class_ctrlr_modulator.html&#10;-- @value    new numeric value of the modulator&#10;--&#10;switchLookAndFeel = function(--[[ CtrlrModulator --]] mod, --[[ number --]] value)&#13;&#10;&#9;if value == 1 then&#13;&#10;&#9;&#9;lf = LookAndFeel()&#13;&#10;&#9;&#9;lf:setImplementation (lookAndFeelImpl)&#13;&#10;&#9;&#9;panel:getCanvas():setCustomLookAndFeel(lf)&#13;&#10;&#9;else&#13;&#10;&#9;&#9;panel:getCanvas():setCustomLookAndFeel(nil)&#13;&#10;&#9;end&#10;end"
@@ -134,7 +134,7 @@
   <uiPanelEditor uiPanelCanvasRectangle="0 0 654 429" uiPanelSnapSize="8" uiPanelBackgroundColour="0xffffffff"
                  uiPanelBackgroundColour1="ff4a4a4a" uiPanelBackgroundColour2="ff000000"
                  uiPanelBackgroundGradientType="1" uiPanelImageResource="-- None"
-                 uiPanelEditMode="0" uiPanelViewPortSize="785" uiPanelPropertiesSize="196"
+                 uiPanelEditMode="0" uiPanelViewPortSize="1063" uiPanelPropertiesSize="265"
                  uiPanelLock="0" uiPanelDisabledOnEdit="0" uiPanelWidth="400"
                  uiPanelHeight="400" name="JoMoX M.Brane 11" uiPanelImageAlpha="255"
                  uiPanelImageLayout="64" uiPanelSnapActive="1" uiPanelPropertiesOnRight="0"
@@ -205,7 +205,7 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m1Pitch" modulatorMin="0" modulatorValue="188">
+             name="m1Pitch" modulatorMin="0" modulatorValue="125">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,90,-1:CC,ByteValue,LSB7bitValue,91,-1"
           midiMessageSysExFormula=""/>
@@ -244,22 +244,22 @@
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="3" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorMute="0"
-             modulatorExcludeFromSnapshot="0" modulatorValueExpression="modulatorValue"
-             modulatorValueExpressionReverse="midiValue" modulatorControllerExpression="value"
+             modulatorExcludeFromSnapshot="0" modulatorValueExpression="getBitRangeAsInt(global.k23,0,8)"
+             modulatorValueExpressionReverse="setGlobal (0, 13)" modulatorControllerExpression="setGlobal (0, 13)"
              luaModulatorGetValueForMIDI="-- None" luaModulatorGetValueFromMIDI="-- None"
              modulatorLinkedToPanelProperty="-- None" modulatorLinkedToModulatorProperty="-- None"
              modulatorLinkedToModulator="-- None" modulatorLinkedToModulatorSource="1"
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m1Dampen" modulatorMin="0" modulatorValue="132">
+             name="m1Dampen" modulatorMin="0" modulatorValue="35">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,92,-1:CC,ByteValue,LSB7bitValue,93,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="M1 Dampen"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="M1 Dampen"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -717,7 +717,7 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="volume" modulatorMin="0" modulatorValue="98">
+             name="volume" modulatorMin="0" modulatorValue="112">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="117" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
@@ -763,7 +763,7 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="lfoWave" modulatorMin="0" modulatorValue="4">
+             name="lfoWave" modulatorMin="0" modulatorValue="1">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="119" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
@@ -805,7 +805,7 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="lfoWave-1" modulatorMin="0" modulatorValue="3">
+             name="lfoWave-1" modulatorMin="0" modulatorValue="1">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="120" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
@@ -1001,7 +1001,7 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="switchLookAndFeel"
-             name="modulator-1" modulatorMin="0" modulatorValue="1">
+             name="modulator-1" modulatorMin="0" modulatorValue="0">
     <midi midiMessageType="9" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
